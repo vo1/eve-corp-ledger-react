@@ -6,27 +6,30 @@ export default function MiningOpsList ()
 {
     const { loading, error, data } = useQuery(GQLGetSelfWithCorporationMiningObservers);
 
-    function List({ops}) {
+    function List({me}) {
+        me = me();
+        if (!me.miningObservers || me.miningObservers.length == 0) {
+            return '';
+        }
         return (
             <div>
-                {ops().map( op =>
-                    <div><Link to={{pathname: 'view/' + op.observerId}}>{op.lastUpdated} ({op.structure.name})</Link></div>
+                {me.miningObservers.map( op =>
+                    <div><Link to={{pathname: 'view/?corporationId='+me.corporationId + '&observerId=' + op.observerId }}>{op.lastUpdated} ({op.structure.name})</Link></div>
                 )}
             </div>
         );
     }
-
     function RetrieveMiningOps()
     {
         if (loading) return [];
         if (error) return [];
         if (data && data.getSelf) {
-            return data.getSelf.miningObservers;
+            return data.getSelf;
         }
         return [];
     }
 
     return (
-        <List ops = {RetrieveMiningOps} />
+        <List me = {RetrieveMiningOps} />
     );
 }

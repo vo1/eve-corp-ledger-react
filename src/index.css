@@ -12,11 +12,53 @@ code {
     monospace;
 }
 
+dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+	width: 500px;
+}
+dl dt {
+    grid-column-start: 1;
+}
+dl dd {
+    grid-column-start: 2;
+	margin-inline-start: 0px;
+	border-left: 1px solid #ccc;
+	padding: 2px;
+}
+dl dt,
+dl dd {
+    border-top: 1px solid #ccc;
+	padding-left: 5px;
+}
+dl dt:first-of-type,
+dl dd:first-of-type {
+    background: gray;
+	color: blue;
+	font-weight: bold;
+}
+
+.hint {
+	display: none;
+	position: absolute;
+	background: white;
+	border: solid 1px #999;
+}
+.showMore {
+	cursor: help;
+	float: right;
+}
+.showMore:hover + .hint {
+  display: block;
+  color: green;
+}
+
 #root {
-    margin-left: auto;
-    position: fixed;
-    top: 10px;
-    left: 50%;
+    /* margin-left: auto; */
+    /* position: fixed; */
+    /* top: 10px; */
+    /* left: 50%;
     min-width: 1024px;
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%); */
 }

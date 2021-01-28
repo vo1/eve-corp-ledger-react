@@ -7,6 +7,7 @@ import { gql, useQuery } from '@apollo/client';
 
 import Home from './components/Home';
 import MiningOpsList from './components/MiningOpsList';
+import MiningOpsView from './components/MiningOpsView';
 import LoginCallback from './components/LoginCallback';
 import { GQLGetLoginUrl, isLoggedIn } from './GraphQLClient';
 
@@ -53,6 +54,7 @@ export default function App()
                 <Switch>
                     <Route exact path='/' component={Home} />
                     <Route path='/mining/list-ops' component={MiningOpsList} />
+                    <Route path='/mining/view' component={MiningOpsView} />
                     <Route path='/login/callback' component={LoginCallback} />
                 </Switch>
             </div>

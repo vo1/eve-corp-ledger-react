@@ -48,6 +48,7 @@ export const GQLGetCorporationMiningObservers = gql`
 export const GQLGetSelfWithCorporationMiningObservers = gql`{
     getSelf {
         name
+        corporationId
         miningObservers {
             observerId
             lastUpdated
@@ -70,6 +71,24 @@ export const GQLGetSelf = gql`{
 export const GQLGetLoginUrl = gql`
     query($callbackUrl: String!) {
         getLoginUrl(callbackUrl: $callbackUrl)
+    }
+`;
+
+export const GQLGetCorporationMiningObserverEntries = gql`
+    query($corporationId: ID!, $observerId: ID!) {
+        getCorporationMiningObserverEntries(corporationId: $corporationId, observerId: $observerId) {
+          characterId
+          quantity
+          typeId
+          type {
+              name
+              volume
+              portionSize
+          }
+          character {
+              name
+          }
+        }
     }
 `;
 
