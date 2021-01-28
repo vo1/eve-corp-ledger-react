@@ -84,6 +84,9 @@ export const GQLGetCorporationMiningObserverEntries = gql`
               name
               volume
               portionSize
+              marketGroup {
+                  name
+              }
           }
           character {
               name
