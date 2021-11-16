@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/client';
-import { GQLGetSelfWithCorporationMiningObservers } from '../GraphQLClient';
+import { GQLMe } from '../GraphQLClient';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default function MiningOpsList ()
 {
-    const { loading, error, data } = useQuery(GQLGetSelfWithCorporationMiningObservers);
+    const { loading, error, data } = useQuery(GQLMe);
 
     function List({me}) {
         me = me();
@@ -14,7 +14,7 @@ export default function MiningOpsList ()
         return (
             <div>
                 {me.miningObservers.map( op =>
-                    <div><Link to={{pathname: 'view/?corporationId='+me.corporationId + '&observerId=' + op.observerId }}>{op.lastUpdated} ({op.structure.name})</Link></div>
+                    <div><Link to={{pathname: 'view/?corporationId='+me.corporationId + '&observerId=' + op.observerId + '&date=' + op.lastUpdated}}>{op.lastUpdated} ({op.structure.name})</Link></div>
                 )}
             </div>
         );
@@ -23,8 +23,8 @@ export default function MiningOpsList ()
     {
         if (loading) return [];
         if (error) return [];
-        if (data && data.getSelf) {
-            return data.getSelf;
+        if (data && data.me) {
+            return data.me;
         }
         return [];
     }

@@ -1,7 +1,8 @@
 import { gql, createHttpLink, ApolloClient, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-export const GQLHost = 'http://localhost:4000/';
+export const GQLHost = process.env.REACT_APP_ESI_GRAPHQL_ADDR;
+export const CallbackURL = process.env.REACT_APP_ESI_FRONTEND_CALLBACK;
 
 const httpLink = createHttpLink({ uri: GQLHost });
 const authLink = setContext((_, { headers }) => {
@@ -32,23 +33,25 @@ export function isLoggedIn()
     return false;
 }
 
-export const GQLGetCorporationMiningObservers = gql`
-    query($corporationId: ID!) {
-        getCorporationMiningObservers(corporationId: $corporationId) {
-            lastUpdated
-            observerId
-            observerType
-            structure {
-                name
-            }
-        }
-    }
-`;
-
-export const GQLGetSelfWithCorporationMiningObservers = gql`{
-    getSelf {
+export const GQLMe = gql`{
+    me {
+        id
         name
         corporationId
+        structures {
+            name
+            fuelExpires
+            state
+            stateTimerEnd
+            services {
+                name
+                state
+            }
+            miningExtraction {
+                chunkArrivalTime
+                naturalDecayTime    
+            }
+        }
         miningObservers {
             observerId
             lastUpdated
@@ -59,39 +62,9 @@ export const GQLGetSelfWithCorporationMiningObservers = gql`{
     }
 }`;
 
-
-export const GQLGetSelf = gql`{
-    getSelf {
-        id
-        name
-        corporationId
-    }
-}`;
-
 export const GQLGetLoginUrl = gql`
-    query($callbackUrl: String!) {
-        getLoginUrl(callbackUrl: $callbackUrl)
-    }
-`;
-
-export const GQLGetCorporationMiningObserverEntries = gql`
-    query($corporationId: ID!, $observerId: ID!) {
-        getCorporationMiningObserverEntries(corporationId: $corporationId, observerId: $observerId) {
-          characterId
-          quantity
-          typeId
-          type {
-              name
-              volume
-              portionSize
-              marketGroup {
-                  name
-              }
-          }
-          character {
-              name
-          }
-        }
+    query($scopes: [String]!, $callbackUrl: String!) {
+        loginUrl(scopes: $scopes, callbackUrl: $callbackUrl)
     }
 `;
 
@@ -103,6 +76,35 @@ export const GQLGetAuthorizationToken = gql`
             expiresIn
             refreshToken
             tokenType
+        }
+    }
+`;
+
+export const GQLGetCorporationMiningObserverEntries = gql`
+    query($corporationId: ID!, $observerId: ID!, $dateRange: DateRange) {
+        getCorporationMiningObserverEntries(corporationId: $corporationId, observerId: $observerId, dateRange: $dateRange) {
+          characterId
+          quantity
+          typeId
+          type {
+              id
+              name
+              volume
+              portionSize
+              marketGroup {
+                  name
+              }
+          }
+          refine {
+              quantity
+              type {
+                  id
+                  name
+              }
+          }
+          character {
+              name
+          }
         }
     }
 `;

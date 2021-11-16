@@ -46,11 +46,12 @@ dl dd:first-of-type {
 	background: white;
 	border: solid 1px #999;
 }
-.showMore {
-	cursor: help;
+.icon {
 	float: right;
+    cursor: hand;
 }
 .showMore:hover + .hint {
+  cursor: help;
   display: block;
   color: green;
 }

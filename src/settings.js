@@ -1,0 +1,105 @@
+const settings = {
+    // Groups that won't be counted in totals
+    shareableMarketGroups: [
+        "Uncommon Moon Ores",
+        "Rare Moon Ores",
+        "Exceptional Moon Ores"
+    ],
+    reprocessingAmount: 84.3,
+    transportPayModifier: 0.9,
+    altMap: {
+        "Balumba Peretrator": "Jayna Lee Ray",
+        "Jamie Lee Ray": "Jayna Lee Ray",
+        "Jacey Lee Ray": "Jayna Lee Ray",
+        "Jasmine Lee Ray": "Jayna Lee Ray",
+        "Jenny Lee Ray": "Jayna Lee Ray",
+        "Jade Lee Ray": "Jayna Lee Ray",
+        "Jessica Lee Ray": "Jayna Lee Ray",
+        "Jemma Lee Ray": "Jayna Lee Ray",
+        "Julia Lee Ray": "Jayna Lee Ray",
+        "Jane Lee Ray": "Jayna Lee Ray",
+
+        "Nox Racev":"Eguild Racev",
+        "Nox Rac":"Eguild Racev",
+        "Nox R":"Eguild Racev",
+        "Loku Lopata1":"Eguild Racev",
+        "Loku Lopata2":"Eguild Racev",
+        "Loku Lopata3":"Eguild Racev",
+        "Egi Rac":"Eguild Racev",
+
+        "Boursaymmon Idia Orlenard":"Devil White",
+        "Brooghe Irent Breau":"Devil White",
+        "Orlake Tissant":"Devil White",
+        "Praelenync Eullon":"Devil White",
+		"Amelleke Oruet Pollard":"Devil White",
+		"Airuda Ibei Muutaras":"Devil White",
+		"Black-Devil":"Devil White",
+		"DKopMan":"Devil White",
+
+        "Skrep Skrepovich":"Sergey hadron",
+        "STROI STROICH":"Sergey hadron",
+        "TEMPERAL TEMPERALOVICH":"Sergey hadron",
+        "VENTYR VENTYROVICH":"Sergey hadron",
+        "Vil Vilovich":"Sergey hadron",
+        "Ydar Ydarovich":"Sergey hadron",
+        "PLANET PLANETAVICH":"Sergey hadron",
+        "HADRON MINE":"Sergey hadron",
+        "HADRON PMINE":"Sergey hadron",
+        "HADRON QMINE":"Sergey hadron",
+        "Admiral Admiralovich":"Sergey hadron",
+        "Byril Byrilovich":"Sergey hadron",
+        "Covetor Covetorovich":"Sergey hadron",
+        "DEL DELOVICH":"Sergey hadron",
+        "Diplom Diplomovich":"Sergey hadron",
+        "Hulk Hulkovich":"Sergey hadron",
+        "Kamenyka Drobilovich":"Sergey hadron",
+        "KOPIL KOPILOVICH":"Sergey hadron",
+        "Korzin Korzinovich":"Sergey hadron",
+        "Monter Monterovich":"Sergey hadron",
+        "Remont Remontovich":"Sergey hadron",
+
+        "Suave Yirasolutio": "AntonIvan",
+        "Alone Hunter": "AntonIvan",
+        "Colonel Vasin": "AntonIvan",
+        "DonAntonio": "AntonIvan",
+        "Romani4": "AntonIvan",
+        "ShowYourSelf": "AntonIvan",
+        "Lazair Darine": "AntonIvan",
+        "Harry Bane": "AntonIvan",
+        "Janine Loutte": "AntonIvan",
+        "Blind Pew": "AntonIvan",
+
+        "Griff V":"maksimkon",
+        "Klaus Mauss":"maksimkon",
+        "kriss fleming":"maksimkon",
+
+        "Fishy Dame":"FishCatFish",
+        "Fishy Dude":"FishCatFish",
+        "Fishy Fellow":"FishCatFish",
+        "Fishy Gal":"FishCatFish",
+        "Fishy Persona": "FishCatFish",
+        "Fishy Individual":"FishCatFish",
+
+        "KL- 1":"Kapuha-III",
+        "KL-3":"Kapuha-III",
+        "KL-4":"Kapuha-III",
+        "KL-2":"Kapuha-III",
+        "K-IV":"Kapuha-III",
+        "K-VI":"Kapuha-III",
+
+        "DarkManius Arji":"DarkManius Cad",
+        "DarkManius Miro":"DarkManius Cad",
+        "DarkManius Orm":"DarkManius Cad",
+        "DarkManius Darkus":"DarkManius Cad",
+
+        "KPACCOBKA": "Buddha Gautamma",
+
+        "ruewieth Hakaari": "ruewit",
+        "ruewlopata1": "ruewit",
+
+        "Zomka":"Zakamun",
+        "Zoma Zakamun":"Zakamun",
+        "Zak Zakamun":"Zakamun"
+    }
+};
+export default settings;
