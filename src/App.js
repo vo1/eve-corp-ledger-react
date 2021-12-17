@@ -18,7 +18,8 @@ const scopes = [
 	'esi-industry.read_corporation_mining.v1',
 	'esi-universe.read_structures.v1',
 	'esi-contracts.read_character_contracts.v1',
-    'esi-corporations.read_structures.v1'
+    'esi-corporations.read_structures.v1',
+    'esi-characters.read_notifications.v1'
 ];
 
 export default function App()
